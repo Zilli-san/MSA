@@ -1,5 +1,7 @@
 package se.magnus.microservices.core.product.persistence;
 
+import static java.lang.String.format;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -26,19 +28,21 @@ public class ProductEntity {
         this.weight = weight;
     }
 
+    @Override
+    public String toString() {
+        return format("ProductEntity: %s", productId);
+    }
     public String getId() {
         return id;
     }
     public void setId(String id) {
         this.id = id;
     }
-
     public Integer getVersion() {
         return version;
     }
     public void setVersion(Integer version) {
-        this.version = version;
-    }
+        this.version = version;}
     public int getProductId() {
         return productId;
     }
@@ -57,4 +61,5 @@ public class ProductEntity {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
 }
